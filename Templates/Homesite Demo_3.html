@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homesite Quote Conversion Prediction Portal</title>
+    <script>
+        var prediction = "{{ prediction }}";
+        if (prediction) {
+                            var message = "The given insured will " + prediction + " the quote!";
+                            alert(message);
+                        }
+    </script>
+<style>
+  body  {
+            background-color: rgb(209, 186, 186)
+        }
+</style>
+</head>
+<body>
+    <div align="center">
+        <h1>Homesite Quote Conversion Prediction Portal</h1>
+    </div>
+    <form action="/predict" method="POST" style="margin-left: 35px;">
+        <table>
+            <tr>
+                <td style="vertical-align: top;">
+                    <h2><font size="4">Enter values for each of the categories below:</font></h2>
+                        <label>Geographic Field:</label>
+                        <input type="text" id="GeographicField" name="GeographicField" style="margin-left: 30px;"><br><br>
+                        <label>Personal Field:</label>
+                        <input type="text" id="PersonalField" name="PersonalField" style="margin-left: 50px;"><br><br>
+                        <label>Property Field:</label>
+                        <input type="text" id="PropertyField" name="PropertyField" style="margin-left: 50px;"><br><br>
+                        <label>Sales Field:</label>
+                        <input type="text" id="SalesField" name="SalesField" style="margin-left: 71px;"><br><br>
+                        <label>Coverage Field:</label>
+                        <input type="text" id="CoverageField" name="CoverageField" style="margin-left: 43px;"><br><br>
+                        <label>Field:</label>
+                        <input type="text" id="Field" name="Field" style="margin-left: 109px;"><br><br>
+                        <label>Quote Date:</label>
+                        <input type="text" id="Original_Quote_Date" name="Original_Quote_Date" style="margin-left: 68px;"><br><br>
+                </td>
+                <td>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
+                </td>
+                <td>
+                    <table>
+                        <tr>
+                            <td colspan="3">
+                                <h2><font size="4">Select values for each of the categorical features:</font></h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="Field6">Field6:</label>
+                                <select id="Field6" name="Field6" style="margin-left: 92px; width: 80px;">
+                                    <option value="B">B</option>
+                                    <option value="F">F</option>
+                                    <option value="J">J</option>
+                                    <option value="E">E</option>
+                                    <option value="C">C</option>
+                                    <option value="K">K</option>
+                                    <option value="A">A</option>
+                                    <option value="D">D</option>
+                                </select><br><br>
+                                <label for="Field12">Field12:</label>
+                                <select id="Field12" name="Field12" style="margin-left: 84px; width: 80px;">
+                                    <option value="Y">Y</option>
+                                    <option value="N">N</option>
+                               </select><br><br>
+                                <label for="CoverageField8">CoverageField8:</label>
+                                <select id="CoverageField8" name="CoverageField8" style="margin-left: 31px; width: 80px;">
+                                    <option value="T">T</option>
+                                    <option value="Y">Y</option>
+                                    <option value="X">X</option>
+                                    <option value="W">W</option>
+                                    <option value="V">V</option>
+                                    <option value="U">U</option>
+                                    <option value="Z">Z</option>
+                                </select><br><br>
+                                <label for="CoverageField9">CoverageField9:</label>
+                                <select id="CoverageField9" name="CoverageField9" style="margin-left: 31px; width: 80px;">
+                                    <option value="D">D</option>
+                                    <option value="E">E</option>
+                                    <option value="J">J</option>
+                                    <option value="F">F</option>
+                                    <option value="A">A</option>
+                                    <option value="G">G</option>
+                                    <option value="K">K</option>
+                                    <option value="C">C</option>
+                                    <option value="L">L</option>
+                                    <option value="B">B</option>
+                                    <option value="I">I</option>
+                                    <option value="H">H</option>
+                                </select><br><br>
+                                <label for="SalesField7">SalesField7:</label>
+                                <select id="SalesField7" name="SalesField7" style="margin-left: 58px; width: 80px;">
+                                    <option value="V">V</option>
+                                    <option value="P">P</option>
+                                    <option value="K">K</option>
+                                    <option value="R">R</option>
+                                    <option value="T">T</option>
+                                    <option value="Q">Q</option>
+                                    <option value="M">M</option>
+                                </select><br><br>
+                                <label for="PersonalField7">PersonalField7:</label>
+                                <select id="PersonalField7" name="PersonalField7" style="margin-left: 37px; width: 80px;">
+                                    <option value="Y">Y</option>
+                                    <option value="N">N</option>
+                                </select><br><br>
+                                <label for="PersonalField16">PersonalField16:</label>
+                                <select id="PersonalField16" name="PersonalField16" style="margin-left: 29px; width: 80px;">
+                                    <option value="ZA">ZA</option>
+                                    <option value="XB">XB</option>
+                                    <option value="ZH">ZH</option>
+                                    <option value="XO">XO</option>
+                                    <option value="YE">YE</option>
+                                    <option value="XR">XR</option>
+                                    <option value="ZG">ZG</option>
+                                    <option value="ZF">ZF</option>
+                                    <option value="XW">XW</option>
+                                    <option value="XS">XS</option>
+                                    <option value="ZT">ZT</option>
+                                    <option value="XD">XD</option>
+                                    <option value="XH">XH</option>
+                                    <option value="XM">XM</option>
+                                    <option value="YH">YH</option>
+                                    <option value="ZD">ZD</option>
+                                    <option value="XJ">XJ</option>
+                                    <option value="ZN">ZN</option>
+                                    <option value="YF">YF</option>
+                                    <option value="XX">XX</option>
+                                    <option value="XL">XL</option>
+                                    <option value="XQ">XQ</option>
+                                    <option value="ZJ">ZJ</option>
+                                    <option value="ZR">ZR</option>
+                                    <option value="ZW">ZW</option>
+                                    <option value="XE">XE</option>
+                                    <option value="XC">XC</option>
+                                    <option value="ZK">ZK</option>
+                                    <option value="XK">XK</option>
+                                    <option value="ZC">ZC</option>
+                                    <option value="XZ">XZ</option>
+                                    <option value="XI">XI</option>
+                                    <option value="ZE">ZE</option>
+                                    <option value="ZU">ZU</option>
+                                    <option value="YI">YI</option>
+                                    <option value="XP">XP</option>
+                                    <option value="ZO">ZO</option>
+                                    <option value="ZP">ZP</option>
+                                    <option value="ZB">ZB</option>
+                                    <option value="XF">XF</option>
+                                    <option value="ZS">ZS</option>
+                                    <option value="XT">XT</option>
+                                    <option value="XY">XY</option>
+                                    <option value="ZQ">ZQ</option>
+                                    <option value="ZI">ZI</option>
+                                    <option value="XV">XV</option>
+                                    <option value="XU">XU</option>
+                                    <option value="XN">XN</option>
+                                    <option value="ZV">ZV</option>
+                                    <option value="ZL">ZL</option>
+                                </select><br><br>
+                                <label for="PersonalField17">PersonalField17:</label>
+                                <select id="PersonalField17" name="PersonalField17" style="margin-left: 29px; width: 80px;">
+                                    <option value="ZE">ZE</option>
+                                    <option value="YJ">YJ</option>
+                                    <option value="XS">XS</option>
+                                    <option value="XE">XE</option>
+                                    <option value="XU">XU</option>
+                                    <option value="ZQ">ZQ</option>
+                                    <option value="YY">YY</option>
+                                    <option value="XV">XV</option>
+                                    <option value="ZF">ZF</option>
+                                    <option value="XK">XK</option>
+                                    <option value="YS">YS</option>
+                                    <option value="ZK">ZK</option>
+                                    <option value="YF">YF</option>
+                                    <option value="YV">YV</option>
+                                    <option value="XG">XG</option>
+                                    <option value="ZL">ZL</option>
+                                    <option value="ZH">ZH</option>
+                                    <option value="ZW">ZW</option>
+                                    <option value="XH">XH</option>
+                                    <option value="ZU">ZU</option>
+                                    <option value="YH">YH</option>
+                                    <option value="XC">XC</option>
+                                    <option value="ZV">ZV</option>
+                                    <option value="XR">XR</option>
+                                    <option value="ZI">ZI</option>
+                                    <option value="XX">XX</option>
+                                    <option value="YR">YR</option>
+                                    <option value="XW">XW</option>
+                                    <option value="ZC">ZC</option>
+                                    <option value="YZ">YZ</option>
+                                    <option value="YU">YU</option>
+                                    <option value="YX">YX</option>
+                                    <option value="ZA">ZA</option>
+                                    <option value="ZP">ZP</option>
+                                    <option value="XI">XI</option>
+                                    <option value="YN">YN</option>
+                                    <option value="YL">YL</option>
+                                    <option value="YK">YK</option>
+                                    <option value="ZN">ZN</option>
+                                    <option value="XT">XT</option>
+                                    <option value="ZT">ZT</option>
+                                    <option value="XQ">XQ</option>
+                                    <option value="XB">XB</option>
+                                    <option value="YI">YI</option>
+                                    <option value="YM">YM</option>
+                                    <option value="XL">XL</option>
+                                    <option value="YQ">YQ</option>
+                                    <option value="ZG">ZG</option>
+                                    <option value="ZS">ZS</option>
+                                    <option value="YT">YT</option>
+                                    <option value="ZO">ZO</option>
+                                    <option value="YE">YE</option>
+                                    <option value="XN">XN</option>
+                                    <option value="ZM">ZM</option>
+                                    <option value="XM">XM</option>
+                                    <option value="YG">YG</option>
+                                    <option value="YP">YP</option>
+                                    <option value="XD">XD</option>
+                                    <option value="ZD">ZD</option>
+                                    <option value="YW">YW</option>
+                                    <option value="XJ">XJ</option>
+                                    <option value="ZB">ZB</option>
+                                    <option value="XP">XP</option>
+                                    <option value="XO">XO</option>
+                                    <option value="ZR">ZR</option>
+                                    <option value="XY">XY</option>
+                                </select><br><br>
+                                <label for="PersonalField18">PersonalField18:</label>
+                                <select id="PersonalField18" name="PersonalField18" style="margin-left: 29px; width: 80px;">
+                                    <option value="XR">XR</option>
+                                    <option value="YE">YE</option>
+                                    <option value="YP">YP</option>
+                                    <option value="YI">YI</option>
+                                    <option value="XQ">XQ</option>
+                                    <option value="ZW">ZW</option>
+                                    <option value="XT">XT</option>
+                                    <option value="XF">XF</option>
+                                    <option value="XS">XS</option>
+                                    <option value="YG">YG</option>
+                                    <option value="ZF">ZF</option>
+                                    <option value="XZ">XZ</option>
+                                    <option value="XI">XI</option>
+                                    <option value="XK">XK</option>
+                                    <option value="YF">YF</option>
+                                    <option value="ZE">ZE</option>
+                                    <option value="YQ">YQ</option>
+                                    <option value="ZP">ZP</option>
+                                    <option value="YL">YL</option>
+                                    <option value="ZD">ZD</option>
+                                    <option value="XW">XW</option>
+                                    <option value="YN">YN</option>
+                                    <option value="YK">YK</option>
+                                    <option value="ZJ">ZJ</option>
+                                    <option value="ZK">ZK</option>
+                                    <option value="ZC">ZC</option>
+                                    <option value="XU">XU</option>
+                                    <option value="ZN">ZN</option>
+                                    <option value="XP">XP</option>
+                                    <option value="XL">XL</option>
+                                    <option value="XM">XM</option>
+                                    <option value="ZL">ZL</option>
+                                    <option value="XC">XC</option>
+                                    <option value="ZH">ZH</option>
+                                    <option value="XG">XG</option>
+                                    <option value="XN">XN</option>
+                                    <option value="XY">XY</option>
+                                    <option value="ZQ">ZQ</option>
+                                    <option value="XO">XO</option>
+                                    <option value="ZT">ZT</option>
+                                    <option value="XJ">XJ</option>
+                                    <option value="ZA">ZA</option>
+                                    <option value="ZU">ZU</option>
+                                    <option value="XE">XE</option>
+                                    <option value="ZV">ZV</option>
+                                    <option value="ZS">ZS</option>
+                                    <option value="YR">YR</option>
+                                    <option value="YH">YH</option>
+                                    <option value="YJ">YJ</option>
+                                    <option value="ZR">ZR</option>
+                                    <option value="ZO">ZO</option>
+                                    <option value="YO">YO</option>
+                                    <option value="ZM">ZM</option>
+                                    <option value="XD">XD</option>
+                                    <option value="YM">YM</option>
+                                    <option value="XX">XX</option>
+                                    <option value="ZB">ZB</option>
+                                    <option value="XH">XH</option>
+                                    <option value="XV">XV</option>
+                                    <option value="ZG">ZG</option>
+                                    <option value="ZI">ZI</option>
+                                </select><br><br>
+                                <label for="PersonalField19">PersonalField19:</label>
+                                <select id="PersonalField19" name="PersonalField19" style="margin-left: 29px; width: 80px;">
+                                    <option value="XD">XD</option>
+                                    <option value="XT">XT</option>
+                                    <option value="XC">XC</option>
+                                    <option value="XX">XX</option>
+                                    <option value="ZQ">ZQ</option>
+                                    <option value="ZT">ZT</option>
+                                    <option value="ZO">ZO</option>
+                                    <option value="YJ">YJ</option>
+                                    <option value="ZN">ZN</option>
+                                    <option value="YH">YH</option>
+                                    <option value="ZI">ZI</option>
+                                    <option value="YN">YN</option>
+                                    <option value="YF">YF</option>
+                                    <option value="YK">YK</option>
+                                    <option value="XY">XY</option>
+                                    <option value="XI">XI</option>
+                                    <option value="ZA">ZA</option>
+                                    <option value="ZW">ZW</option>
+                                    <option value="ZV">ZV</option>
+                                    <option value="XU">XU</option>
+                                    <option value="ZL">ZL</option>
+                                    <option value="XK">XK</option>
+                                    <option value="XW">XW</option>
+                                    <option value="XF">XF</option>
+                                    <option value="ZK">ZK</option>
+                                    <option value="YE">YE</option>
+                                    <option value="XB">XB</option>
+                                    <option value="XZ">XZ</option>
+                                    <option value="XP">XP</option>
+                                    <option value="ZJ">ZJ</option>
+                                    <option value="YM">YM</option>
+                                    <option value="XO">XO</option>
+                                    <option value="YG">YG</option>
+                                    <option value="XN">XN</option>
+                                    <option value="ZR">ZR</option>
+                                    <option value="ZE">ZE</option>
+                                    <option value="ZB">ZB</option>
+                                    <option value="ZG">ZG</option>
+                                    <option value="YL">YL</option>
+                                    <option value="ZF">ZF</option>
+                                    <option value="XR">XR</option>
+                                    <option value="XJ">XJ</option>
+                                    <option value="XM">XM</option>
+                                    <option value="ZP">ZP</option>
+                                    <option value="XQ">XQ</option>
+                                    <option value="XV">XV</option>
+                                    <option value="ZH">ZH</option>
+                                    <option value="XE">XE</option>
+                                    <option value="ZU">ZU</option>
+                                    <option value="ZM">ZM</option>
+                                    <option value="XG">XG</option>
+                                    <option value="ZD">ZD</option>
+                                    <option value="XH">XH</option>
+                                    <option value="XL">XL</option>
+                                    <option value="YI">YI</option>
+                                    <option value="XS">XS</option>
+                                    <option value="ZC">ZC</option>
+                                </select><br><br>
+                                <label for="PropertyField3">PropertyField3:</label>
+                                <select id="PropertyField3" name="PropertyField3" style="margin-left: 37px; width: 80px;">
+                                    <option value="Y">Y</option>
+                                    <option value="N">N</option>
+                                </select><br><br>
+                                <label for="PropertyField4">PropertyField4:</label>
+                                <select id="PropertyField4" name="PropertyField4" style="margin-left: 37px; width: 80px;">
+                                    <option value="Y">Y</option>
+                                    <option value="N">N</option>
+                                </select><br><br>
+                                <label for="PropertyField5">PropertyField5:</label>
+                                <select id="PropertyField5" name="PropertyField5" style="margin-left: 37px; width: 80px;">
+                                    <option value="Y">Y</option>
+                                    <option value="N">N</option>
+                                </select>
+                            </td>
+                            <td>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
+                            </td>
+                            <td>
+                                <label for="PropertyField7">PropertyField7:</label>
+                                <select id="PropertyField7" name="PropertyField7" style="margin-left: 48px; width: 80px;">
+                                    <option value="O">O</option>
+                                    <option value="N">N</option>
+                                    <option value="R">R</option>
+                                    <option value="D">D</option>
+                                    <option value="S">S</option>
+                                    <option value="J">J</option>
+                                    <option value="I">I</option>
+                                    <option value="Q">Q</option>
+                                    <option value="A">A</option>
+                                    <option value="K">K</option>
+                                    <option value="G">G</option>
+                                    <option value="F">F</option>
+                                    <option value="H">H</option>
+                                    <option value="E">E</option>
+                                    <option value="L">L</option>
+                                    <option value="C">C</option>
+                                    <option value="P">P</option>
+                                    <option value="M">M</option>
+                                    <option value="B">B</option>
+                                </select><br><br>
+                                <label for="PropertyField14">PropertyField14:</label>
+                                <select id="PropertyField14" name="PropertyField14" style="margin-left: 40px; width: 80px;">
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                               </select><br><br>
+                                <label for="PropertyField28">PropertyField28:</label>
+                                <select id="PropertyField28" name="PropertyField28" style="margin-left: 40px; width: 80px;">
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                                </select><br><br>
+                                <label for="PropertyField30">PropertyField30:</label>
+                                <select id="PropertyField30" name="PropertyField30" style="margin-left: 40px; width: 80px;">
+                                    <option value="Y">Y</option>
+                                    <option value="N">N</option>
+                                </select><br><br>
+                                <label for="PropertyField31">PropertyField31:</label>
+                                <select id="PropertyField31" name="PropertyField31" style="margin-left: 40px; width: 80px;">
+                                    <option value="N">N</option>
+                                    <option value="O">O</option>
+                                    <option value="K">K</option>
+                                    <option value="M">M</option>
+                                </select><br><br>
+                                <label for="PropertyField32">PropertyField32:</label>
+                                <select id="PropertyField32" name="PropertyField32" style="margin-left: 40px; width: 80px;">
+                                    <option value="Y">Y</option>
+                                    <option value="N">N</option>
+                                </select><br><br>
+                                <label for="PropertyField33">PropertyField33:</label>
+                                <select id="PropertyField33" name="PropertyField33" style="margin-left: 40px; width: 80px;">
+                                    <option value="G">G</option>
+                                    <option value="H">H</option>
+                                    <option value="E">E</option>
+                                    <option value="F">F</option>
+                                </select><br><br>
+                                <label for="PropertyField34">PropertyField34:</label>
+                                <select id="PropertyField34" name="PropertyField34" style="margin-left: 40px; width: 80px;">
+                                    <option value="Y">Y</option>
+                                    <option value="N">N</option>
+                                </select><br><br>
+                                <label for="PropertyField36">PropertyField36:</label>
+                                <select id="PropertyField36" name="PropertyField36" style="margin-left: 40px; width: 80px;">
+                                    <option value="Y">Y</option>
+                                    <option value="N">N</option>
+                                </select><br><br>
+                                <label for="PropertyField37">PropertyField37:</label>
+                                <select id="PropertyField37" name="PropertyField37" style="margin-left: 40px; width: 80px;">
+                                    <option value="Y">Y</option>
+                                    <option value="N">N</option>
+                                </select><br><br>
+                                <label for="PropertyField38">PropertyField38:</label>
+                                <select id="PropertyField38" name="PropertyField38" style="margin-left: 40px; width: 80px;">
+                                    <option value="Y">Y</option>
+                                    <option value="N">N</option>
+                                </select><br><br>
+                                <label for="GeographicField63">GeographicField63:</label>
+                                <select id="GeographicField63" name="GeographicField63" style="margin-left: 21px; width: 80px;">
+                                    <option value="Y">Y</option>
+                                    <option value="N">N</option>
+                                </select><br><br>
+                                <label for="GeographicField64">GeographicField64:</label>
+                                <select id="GeographicField64" name="GeographicField64" style="margin-left: 21px; width: 80px;">
+                                    <option value="CA">CA</option>
+                                    <option value="NJ">NJ</option>
+                                    <option value="TX">TX</option>
+                                    <option value="IL">IL</option>
+                                </select>
+                        </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <h2><font face="arial" size="2">Please click the "Submit" button to receive a prediction regarding the feasibility of converting the quote.</font></h2>
+                    <div align="center">
+                        <input type="submit" value="Submit" style="width: 150px; height: 40px;" onclick="showMessage()" title="Ensure that pop-ups are enabled in your browser to view the desired result.">
+                    </div>
+                </td>
+            </tr>
+        </table>
+  </form>
+  <p style="font-family: Arial, sans-serif; font-size: 12px;">
+      To access the source code, visit the GitHub repository by clicking 
+      <a href="https://github.com/AnoopCA/Homesite_quote_conversion_prediction" onclick="window.open             ('https://github.com/AnoopCA/Homesite_quote_conversion_prediction', '_blank'); return false;">here</a>.
+  </p>
+</body>
+</html>
