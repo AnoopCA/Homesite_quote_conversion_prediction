@@ -6,3 +6,10 @@ __pycache__/
 
 # Ignore Visual Studio Code workspace settings
 .vscode/
+
+# Ignore EC2 keys
+homesite-demo.ppk
+MyJupyterNotebook.pem
+
+# Ignore Procfile
+Procfile
